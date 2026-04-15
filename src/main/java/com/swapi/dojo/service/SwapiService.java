@@ -11,7 +11,7 @@ public class SwapiService {
         this.swapiClient = swapiClient;
     }
     public PeopleResponse[] getPeople() {
-        return swapiClient.searchPeople();
+        return swapiClient.findPeople();
     }
 
 }

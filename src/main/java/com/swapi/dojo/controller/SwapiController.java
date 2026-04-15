@@ -13,7 +13,7 @@ public class SwapiController {
        this.swapiService = swapiService;
    }
 
-   @GetMapping("/people")
+   @GetMapping("/people/{id}")
     public PeopleResponse[] getPeople() {
        return swapiService.getPeople();
    }
