@@ -3,6 +3,7 @@ package com.swapi.dojo.controller;
 import com.swapi.dojo.dto.PeopleResponse;
 import com.swapi.dojo.service.SwapiService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -14,8 +15,8 @@ public class SwapiController {
    }
 
    @GetMapping("/people/{id}")
-    public PeopleResponse[] getPeople() {
-       return swapiService.getPeople();
+    public PeopleResponse getPersonById(@PathVariable Long id) {
+        return swapiService.getPersonById(id);
    }
 }
 

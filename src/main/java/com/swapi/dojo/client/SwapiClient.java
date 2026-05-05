@@ -21,9 +21,13 @@ public class SwapiClient {
                 String url = config.getUrl() + "/people";
                 return restTemplate.getForObject(url, PeopleResponse[].class);
             } catch (Exception ex) {
-                throw new ExternalApiException("Erro ao conumir APi externa", ex);
+                throw new ExternalApiException("Erro ao consumir API externa", ex);
             }
 
+        }
+        public PeopleResponse getPersonById(Long id){
+            String url = config.getUrl() + "/people/" + id;
+            return  restTemplate.getForObject(url, PeopleResponse.class);
         }
 
     }
