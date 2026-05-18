@@ -1,20 +1,12 @@
 package com.swapi.dojo.dto;
 
-public class ErrorResponse {
-        private String message;
-        private int status;
+import org.springframework.http.HttpStatus;
 
-        public ErrorResponse(String message, int status) {
-            this.message = message;
-            this.status = status;
-        }
+import java.time.LocalDateTime;
 
-        public String getMessage() {
-            return message;
-        }
+public record ErrorResponse (
+    LocalDateTime timestamp,
+    HttpStatus status,
+    String message
 
-        public int getStatus() {
-            return status;
-        }
-    }
-
+){}

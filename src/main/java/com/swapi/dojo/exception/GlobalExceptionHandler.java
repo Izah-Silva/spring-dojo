@@ -7,14 +7,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.time.LocalDateTime;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(ExternalApiException.class)
     public ResponseEntity<ErrorResponse> handleExternalApiException(ExternalApiException ex) {
         ErrorResponse error = new ErrorResponse(
-                "Não foi possível consultar a API externa no momento",
-                HttpStatus.SERVICE_UNAVAILABLE.value()
+                LocalDateTime.now(),
+                HttpStatus.SERVICE_UNAVAILABLE,
+                "Não foi possível consultar a API externa no momento"
         );
 
         return ResponseEntity
